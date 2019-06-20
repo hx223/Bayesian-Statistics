@@ -1,0 +1,223 @@
+---
+title: '6780'
+output:
+  pdf_document: default
+  html_document: default
+---
+\textbf{Pr 1}
+
+Answer: (a) According to the given information, we know
+\begin{eqnarray*}
+[\beta|\sigma_{\epsilon}^2,\alpha,\{\alpha_i,i=1,\cdots,16\},\sigma_{\alpha}^2,\textbf{Y}]&\propto& [\beta,\sigma_{\epsilon}^2,\alpha,\{\alpha_i,i=1,\cdots,16\},\sigma_{\alpha}^2,\textbf{Y}]\propto
+[\textbf{Y}|\{\alpha_i,i=1,\cdots,16\},\beta,\sigma_{\epsilon}^2][\beta]\nonumber\\
+&\propto&\exp\bigg\{-\frac{\sum_{i=1}^{16}\sum_{j=1}^{12}(y_{ij}-\alpha_i-\beta x_{ij})^2}{2\sigma_{\epsilon}^2}-\frac{\beta^2}{2\times 10^5}\bigg\}\nonumber\\
+&\propto&\exp\bigg\{-\beta^2\bigg(\frac{\sum_{i=1}^{16}\sum_{j=1}^{12}x_{ij}^2}{2\sigma_{\epsilon}^2}+\frac{1}{2\times10^5}\bigg)+\beta\bigg(\frac{ \sum_{i=1}^{16}\sum_{j=1}^{12}x_{ij}(y_{ij}-\alpha_i)}{\sigma_{\epsilon}^2}\bigg)\bigg\}
+\end{eqnarray*}
+which implies $\beta|\sigma_{\epsilon}^2,\alpha,\{\alpha_i,i=1,\cdots,16\},\sigma_{\alpha}^2,\textbf{Y}$ follows $N\Big(\frac{10^5\sum_{i=1}^{16}\sum_{j=1}^{12}x_{ij}(y_{ij}-\alpha_i)}{10^5\sum_{i=1}^{16}\sum_{j=1}^{12}x_{ij}^2+\sigma_{\epsilon}^2},
+\frac{10^5\sigma_{\epsilon}^2}{10^5\sum_{i=1}^{16}\sum_{j=1}^{12}x_{ij}^2+\sigma_{\epsilon}^2}\Big)$.
+
+
+\begin{eqnarray*}
+[\sigma_{\epsilon}^2|\beta,\alpha,\{\alpha_i,i=1,\cdots,16\},\sigma_{\alpha}^2,\textbf{Y}]&\propto& [\beta,\sigma_{\epsilon}^2,\alpha,\{\alpha_i,i=1,\cdots,16\},\sigma_{\alpha}^2,\textbf{Y}]\propto
+[\textbf{Y}|\{\alpha_i,i=1,\cdots,16\},\beta,\sigma_{\epsilon}^2][\sigma_{\epsilon}^2]\nonumber\\
+&\propto&\frac{1}{(\sigma_{\epsilon}^2)^{97.25}}\exp\bigg\{-\frac{\sum_{i=1}^{16}\sum_{j=1}^{12}(y_{ij}-\alpha_i-\beta x_{ij})^2}{2\sigma_{\epsilon}^2}-\frac{0.0005}{\sigma_{\epsilon}^2}\bigg\}
+\end{eqnarray*}
+which implies $\sigma_{\epsilon}^2|\beta,\alpha,\{\alpha_i,i=1,\cdots,16\},\sigma_{\alpha}^2,\textbf{Y}$ follows $IG(96.25,\frac{1}{2}\sum_{i=1}^{16}\sum_{j=1}^{12}(y_{ij}-\alpha_i-\beta x_{ij})^2+0.0005)$.
+
+
+\begin{eqnarray*}
+&&[\alpha|\beta,\sigma_{\epsilon}^2,\{\alpha_i,i=1,\cdots,16\},\sigma_{\alpha}^2,\textbf{Y}]\propto [\beta,\sigma_{\epsilon}^2,\alpha,\{\alpha_i,i=1,\cdots,16\},\sigma_{\alpha}^2,\textbf{Y}]\propto
+[\{\alpha_i,i=1,\cdots,16\}|\alpha,\sigma_{\alpha}^2][\alpha]\nonumber\\
+&\propto&\exp\bigg\{-\frac{\sum_{i=1}^{16}(\alpha_i-\alpha)^2}{2\sigma_{\alpha}^2}-\frac{\alpha^2}{2\times10^6}\bigg\}
+\propto\exp\bigg\{-\alpha^2\bigg(\frac{8}{\sigma_{\alpha}^2}+\frac{1}{2\times10^6}\bigg)+\frac{\alpha\sum_{i=1}^{16}\alpha_i}{\sigma_{\alpha}^2}\bigg\}
+\end{eqnarray*}
+which implies $\alpha|\beta,\sigma_{\epsilon}^2,\{\alpha_i,i=1,\cdots,16\},\sigma_{\alpha}^2,\textbf{Y}$ follows $N\Big(\frac{10^6\sum_{i=1}^{16}\alpha_i}{16\times10^{6}+\sigma_{\alpha}^2},\frac{10^6\sigma_{\alpha}^2}{16\times10^{6}+\sigma_{\alpha}^2}\Big)$.
+
+\begin{eqnarray*}
+[\{\alpha_i,i=1,\cdots,16\}|\beta,\sigma_{\epsilon}^2,\alpha,\sigma_{\alpha}^2,\textbf{Y}]&\propto& [\beta,\sigma_{\epsilon}^2,\alpha,\{\alpha_i,i=1,\cdots,16\},\sigma_{\alpha}^2,\textbf{Y}]\nonumber\\
+&\propto&[\textbf{Y}|\{\alpha_i,i=1,\cdots,16\},\beta,\sigma_{\epsilon}^2]
+[\{\alpha_i,i=1,\cdots,16\}|\alpha,\sigma_{\alpha}^2]\nonumber\\
+&\propto&\exp\bigg\{-\frac{\sum_{i=1}^{16}\sum_{j=1}^{12}(y_{ij}-\alpha_i-\beta x_{ij})^2}{2\sigma_{\epsilon}^2}
+-\frac{\sum_{i=1}^{16}(\alpha_i-\alpha)^2}{2\sigma_{\alpha}^2}\bigg\}\nonumber\\
+&\propto&\exp\bigg\{-\sum_{i=1}^{16}\bigg(\frac{6}{\sigma_{\epsilon}^2}+\frac{1}{2\sigma_{\alpha}^2}\bigg)\alpha_i^2
++\alpha_i\bigg(\frac{\sum_{j=1}^{12}(y_{ij}-\beta x_{ij})}{\sigma_{\epsilon}^2}+\frac{\alpha}{\sigma_{\alpha}^2}\bigg)\bigg\}\nonumber\\
+\end{eqnarray*}
+which implies $\{\alpha_i,i=1,\cdots,16\}|\beta,\sigma_{\epsilon}^2,\alpha,\sigma_{\alpha}^2,\textbf{Y}$ follows $N(\hat{\mu},\hat{\sigma}^2\textbf{I})$,
+where $\hat{\mu}=(\hat{\mu}_1,\cdots,\hat{\mu}_{16})$, $\hat{\mu}_i=\frac{\alpha\sigma_{\epsilon}^2+\sum_{j=1}^{12}\sigma_{\alpha}^2(y_{ij}-\beta x_{ij})}{12\sigma_{\alpha}^2+\sigma_{\epsilon}^2}$, $\hat{\sigma}^2=\frac{\sigma_{\alpha}^2\sigma_{\epsilon}^2}{12\sigma_{\alpha}^2+\sigma_{\epsilon}^2}$ and $\textbf{I}$ is the identity matrix.
+
+\begin{eqnarray*}
+[\sigma_{\alpha}^2|\beta,\sigma_{\epsilon}^2,\alpha,\{\alpha_i,i=1,\cdots,16\},\textbf{Y}]&\propto& [\beta,\sigma_{\epsilon}^2,\alpha,\{\alpha_i,i=1,\cdots,16\},\sigma_{\alpha}^2,\textbf{Y}]\propto
+[\{\alpha_i,i=1,\cdots,16\}|\alpha,\sigma_{\alpha}^2][\sigma_{\alpha}^2]\nonumber\\
+&\propto&\frac{1}{(\sigma_{\alpha}^2)^{9.5}}\exp\bigg\{-\frac{\sum_{i=1}^{16}(\alpha_i-\alpha)^2}{2\sigma_{\alpha}^2}-\frac{0.001}{\sigma_{\alpha}^2}\bigg\}
+\end{eqnarray*}
+which implies $\sigma_{\alpha}^2|\beta,\sigma_{\epsilon}^2,\alpha,\{\alpha_i,i=1,\cdots,16\},\textbf{Y}$ follows $IG(8.5,\frac{1}{2}\sum_{i=1}^{16}(\alpha_i-\alpha)^2+0.001)$.
+
+(b) The R-code is below
+
+
+```{r}
+drug <- read.csv("Baysian Statistics.csv")
+sum2<-sum((drug$time)^2)
+iteration<-1
+beta<-1
+sigma_epsilon<-1
+alpha<-2
+sigma_alpha<-2
+a<-rnorm(16,alpha,sqrt(sigma_alpha))
+b<-a[1]
+for(i in 1:16)
+{ if(i==1)
+  {
+  for(j in 1:11)
+    b<-c(b,a[i])
+  }
+  else
+  {
+  for(j in 1:12)
+    b<-c(b,a[i])
+  }
+}
+```
+
+
+```{r}
+library(invgamma)
+while (iteration <= 3500)
+{ 
+  beta <- c(beta, rnorm(1, mean=1e5*sum(drug$time*(drug$conc-b))/ (1e5*sum2+sigma_epsilon[iteration]), sd = sqrt(1e5*sigma_epsilon[iteration]/(1e5*sum2+sigma_epsilon[iteration]))))
+  sigma_epsilon<-c(sigma_epsilon,rinvgamma(1,shape=96.25,rate=0.0005+sum((drug$conc-b-beta[iteration+1]*drug$time)^2)/2))
+  alpha<-c(alpha,rnorm(1,mean=(1e6*sum(a))/(16*1e6+sigma_alpha[iteration]),sd=sqrt((1e6*sigma_alpha[iteration])/(16*1e6+sigma_alpha[iteration]))))
+  for(i in 1:16)
+  {
+   d<-drug$conc[drug$subject==i]-beta[iteration+1]*drug$time[drug$subject==i]
+   a[i]<-rnorm(1,mean=(alpha[iteration+1]*sigma_epsilon[iteration+1]+sigma_alpha[iteration]*sum(d))/
+                 (12*sigma_alpha[iteration]+sigma_epsilon[iteration+1]),
+               sd=sqrt((sigma_alpha[iteration]*sigma_epsilon[iteration+1])/
+                 (12*sigma_alpha[iteration]+sigma_epsilon[iteration+1])))
+  }
+  sigma_alpha<-c(sigma_alpha,rinvgamma(1,shape=8.5,rate=0.001+sum((a-alpha[iteration+1])^2)/2))
+  
+  iteration <- iteration+1 
+  b<-a[1]
+ for(i in 1:16)
+  { if(i==1)
+   {
+  for(j in 1:11)
+    b<-c(b,a[i])
+  }
+  else
+  {
+  for(j in 1:12)
+    b<-c(b,a[i])
+  }
+  }
+} 
+```
+
+
+```{r}
+plot(c(1:3501),beta,type='l',ylim=c(-0.6,-0.4))
+plot(c(1:3501),sigma_epsilon,type='l',ylim=c(0,0.5))
+plot(c(1:3501),alpha,type='l',ylim=c(0,4))
+plot(c(1:3501),sigma_alpha,type='l',ylim=c(0,6))
+```
+
+```{r}
+plot(density(beta),xlim=c(-0.6,-0.4))
+plot(density(sigma_epsilon),xlim=c(0,0.3))
+plot(density(alpha))
+plot(density(sigma_alpha),xlim=c(0,10))
+```
+
+
+```{r}
+acf(beta)
+acf(sigma_epsilon)
+acf(alpha)
+acf(sigma_alpha)
+```
+```{r}
+summary(beta)
+summary(sigma_epsilon)
+summary(alpha)
+summary(sigma_alpha)
+```
+
+(c) The R code is below:
+
+
+```{r}
+library(mcmcse)
+mcse(beta)
+sqrt(1e5*sigma_epsilon[iteration]/(1e5*sum2+sigma_epsilon[iteration]))
+```
+
+(d) The R code is below:
+
+```{r}
+arima(beta,c(1,0,0))
+```
+
+```{r}
+-2*7818.49+20*log(16*12)
+```
+
+
+```{r}
+arima(beta,c(1,0,1))
+```
+
+```{r}
+-2*7824.79+20*log(16*12)
+```
+
+
+(e) The R code is below:
+
+```{r}
+library(invgamma)
+library(coda)
+qinvgamma(0.025,shape=8.5,rate=0.001+sum((a-alpha[iteration])^2)/2)
+qinvgamma(0.975,shape=8.5,rate=0.001+sum((a-alpha[iteration])^2)/2)
+HPDinterval(mcmc(sigma_alpha),0.95)
+```
+
+
+(f) The R code is below:
+
+```{r}
+library(coda)
+effectiveSize(beta)
+effectiveSize(sigma_epsilon)
+effectiveSize(alpha)
+effectiveSize(sigma_alpha)
+```
+
+
+
+
+(g)
+\begin{eqnarray*}
+[Y|\beta,\sigma_{\epsilon}^2,\alpha,\sigma_{\alpha}^2]&=&\int\cdots\int [Y|\beta,\sigma_{\epsilon}^2,\alpha,\{\alpha_i,i=1,\cdots,16\},\sigma_{\alpha}^2][\{\alpha_i,i=1,\cdots,16\}|\beta,\sigma_{\epsilon}^2,\alpha,\sigma_{\alpha}^2]\prod_{i=1}^{16}d\alpha_i\nonumber\\
+&=&\bigg(\frac{1}{2\pi\sigma_{\epsilon}^2}\bigg)^{96}\bigg(\frac{2\sigma_{\epsilon}^2}{12\sigma_{\alpha}^2+\sigma_{\epsilon}^2}\bigg)^8
+\exp\bigg\{-\frac{\sum_{i=1}^{16}\sum_{j=1}^{12}(y_{ij}-\beta x_{ij})^2}{2\sigma_{\epsilon}^2}-\frac{8\alpha^2}{\sigma_{\alpha}^2}+\frac{\sum_{i=1}^{16}(\sum_{j=1}^{12}(y_{ij}-\beta x_{ij})\sigma_{\alpha}^2+\alpha\sigma_{\epsilon}^2)^2}{(12\sigma_{\alpha}^2+\sigma_{\epsilon}^2)(2\sigma_{\alpha}^2\sigma_{\epsilon}^2)}\bigg\}
+\end{eqnarray*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
